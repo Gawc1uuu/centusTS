@@ -1,9 +1,11 @@
 import React from "react";
 import ExpensesForm from "../components/ExpensesForm";
+import ExpensesList from "../components/ExpensesList";
 
 const Home = () => {
   return (
-    <div className="h-screen w-full bg-gray-200">
+    <div className="grid grid-cols-1 md:grid-cols-3 w-full">
+      <ExpensesList />
       <ExpensesForm />
     </div>
   );
