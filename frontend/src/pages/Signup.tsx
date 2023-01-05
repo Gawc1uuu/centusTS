@@ -39,9 +39,21 @@ const Signup = () => {
               type="password"
             />
           </div>
-          <button className="border w-full my-5 py-2 bg-green-700 hover:bg-green-600 text-white">
-            Sign up
-          </button>
+          {!isPending && (
+            <button className="border w-full my-5 py-2 bg-green-700 hover:bg-green-600 text-white">
+              Sign up
+            </button>
+          )}
+          {isPending && (
+            <button className="border w-full my-5 py-2 bg-green-700 hover:bg-green-600 text-white">
+              ...
+            </button>
+          )}
+          {error && (
+            <p className="px-4 py-2 mx-4 bg-red-400 border border-red-700 text-red-700">
+              {error}
+            </p>
+          )}
         </form>
       </div>
     </div>
