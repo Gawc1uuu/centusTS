@@ -18,6 +18,7 @@ mongoose_1.default
     .catch((e) => {
     console.log(e.message);
 });
+//cors middleware
 app.use((0, cors_1.default)());
 //middleware
 app.use(express_1.default.urlencoded({ extended: true }));

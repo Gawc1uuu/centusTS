@@ -2,7 +2,7 @@ import React from "react";
 
 const ExpensesList = () => {
   return (
-    <div className="w-full col-span-2 ml-16">
+    <div className="bg-gray-300 order-2 md:order-2 w-full col-span-2 ml-16">
       <div className="w-4/5 flex flex-col max-h-[500px] items-center overflow-y-auto">
         <h1 className="font-bolt font-sans text-2xl my-8 text-left">
           Expenses List:

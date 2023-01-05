@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import useLogin from "../hooks/useLogin";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const { login, error, isPending } = useLogin();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(email, password);
+    login(email, password);
     setEmail("");
     setPassword("");
   };
@@ -37,9 +39,22 @@ const Login = () => {
               type="password"
             />
           </div>
-          <button className="border w-full my-5 py-2 bg-green-700 hover:bg-green-600 text-white">
-            Login
-          </button>
+          {!isPending && (
+            <button className="border w-full my-5 py-2 bg-green-700 hover:bg-green-600 text-white">
+              Login
+            </button>
+          )}
+          {isPending && (
+            <button className="border w-full my-5 py-2 bg-green-700 hover:bg-green-600 text-white">
+              ...
+            </button>
+          )}
+
+          {error && (
+            <p className="px-4 py-2 mx-4 bg-red-400 border border-red-700 text-red-700">
+              {error}
+            </p>
+          )}
         </form>
       </div>
     </div>

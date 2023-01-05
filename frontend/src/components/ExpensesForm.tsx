@@ -2,7 +2,7 @@ import React from "react";
 
 const ExpensesForm = () => {
   return (
-    <div className="h-screen w-full flex flex-col justify-start items-start bg-white py-4 px-6 mt-12">
+    <div className="bg-slate-700 order-1 md:order-2 h-screen w-full flex flex-col justify-start items-start bg-white py-4 px-6 mt-12">
       <form className="max-w-[300px] w-11/12 sm:w-full">
         <div className="flex flex-col my-6">
           <label className="text-xl">Name: </label>
