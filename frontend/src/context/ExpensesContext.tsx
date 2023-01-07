@@ -35,7 +35,7 @@ const expensesReducer = (
     case "SET_EXPENSES":
       return { expenses: action.payload };
     case "ADD_EXPENSE":
-      return { expenses: [...state.expenses, action.payload] };
+      return { expenses: [action.payload, ...state.expenses] };
     case "DELETE_EXPENSE":
       return {
         expenses: state.expenses.filter(
