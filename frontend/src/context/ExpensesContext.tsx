@@ -50,6 +50,8 @@ const ExpensesContextProvider = ({
 }: ExpensesContextProviderProps) => {
   const [state, dispatch] = useReducer(expensesReducer, { expenses: null });
 
+  console.log(state);
+
   return (
     <ExpensesContext.Provider value={{ ...state, dispatch }}>
       {children}
