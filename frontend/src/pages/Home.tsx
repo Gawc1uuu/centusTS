@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {}, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 w-full">
+    <div className="flex flex-col md:flex-row md:justify-around justify-center items-start">
       <ExpensesList />
       <ExpensesForm />
     </div>
