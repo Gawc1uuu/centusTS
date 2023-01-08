@@ -5,6 +5,8 @@ interface Expense {
   amount: number;
   user_id: string;
   isIncome: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 const ExpenseSchema = new Schema<Expense>(
