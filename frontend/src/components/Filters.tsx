@@ -1,4 +1,3 @@
-import React from "react";
 const filters = ["all", "this year", "this month", "this week", "today"];
 
 interface filterProps {

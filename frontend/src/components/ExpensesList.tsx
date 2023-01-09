@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import deleteIcon from "../assets/trashcan.svg";
 import axios, { AxiosError } from "axios";
 import useAuthContext from "../hooks/useAuthContext";

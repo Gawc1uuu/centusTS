@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
+//hooks
 import useAuthContext from "../hooks/useAuthContext";
 import useLogout from "../hooks/useLogout";
 
