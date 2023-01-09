@@ -7,7 +7,7 @@ const ExpensesForm = () => {
   const { dispatch } = useExpensesContext();
   const { user } = useAuthContext();
   const [name, setName] = useState<string>("");
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<number>();
   // const [isIncome, setIsIncome] = useState<string>("true");
   const [radioValue, setRadioValue] = useState<boolean>(true);
 
@@ -42,7 +42,7 @@ const ExpensesForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center order-1 md:order-2 justify-center w-full md:w-1/3">
+    <div className="flex flex-col items-center order-1 md:order-2 justify-center w-full md:w-1/3 mt-10">
       <form onSubmit={handleSubmit} className="max-w-[300px] w-11/12 sm:w-full">
         <div className="flex flex-col my-6">
           <label className="text-xl">Name: </label>
