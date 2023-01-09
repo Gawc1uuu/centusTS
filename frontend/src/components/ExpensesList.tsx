@@ -1,9 +1,11 @@
 import { useState } from "react";
-import deleteIcon from "../assets/trashcan.svg";
 import axios, { AxiosError } from "axios";
+//components
 import useAuthContext from "../hooks/useAuthContext";
 import useExpensesContext from "../hooks/useExpensesContext";
 import Filters from "./Filters";
+//assets
+import deleteIcon from "../assets/trashcan.svg";
 
 interface Expense {
   _id: string;
