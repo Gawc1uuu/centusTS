@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import axios, { AxiosError } from "axios";
+//components
 import ExpensesForm from "../components/ExpensesForm";
 import ExpensesList from "../components/ExpensesList";
+//hooks
 import useExpensesContext from "../hooks/useExpensesContext";
 import useAuthContext from "../hooks/useAuthContext";
-import axios, { AxiosError } from "axios";
 
 const Home = () => {
   const { expenses, dispatch } = useExpensesContext();
