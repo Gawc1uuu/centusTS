@@ -49,19 +49,21 @@ const ExpensesForm = () => {
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
+            placeholder="Name of the expense..?"
             required
             type="text"
-            className="border  border-black py-2 px-2"
+            className="border  border-black py-2 px-2 focus:outline-none placeholder:text-light"
           />
         </div>
         <div className="flex flex-col my-6">
           <label className="text-xl">Amount: </label>
           <input
             onChange={(e) => setAmount(parseInt(e.target.value))}
+            placeholder="How much did you spend..?"
             value={amount}
             required
             type="number"
-            className="border border-black py-2 px-2"
+            className="border py-2 px-2 focus:outline-none placeholder:text-light "
           />
         </div>
         <div className="flex justify-between my-4">
