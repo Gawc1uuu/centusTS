@@ -42,7 +42,7 @@ const ExpensesForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center order-1 md:order-2 justify-center w-full md:w-1/3 mt-10">
+    <div className="flex flex-col items-center order-1 md:order-2 justify-center w-full md:w-1/3 mt-10 font-sans">
       <form onSubmit={handleSubmit} className="max-w-[300px] w-11/12 sm:w-full">
         <div className="flex flex-col my-6">
           <label className="text-xl">Name: </label>
@@ -52,7 +52,7 @@ const ExpensesForm = () => {
             placeholder="Name of the expense..?"
             required
             type="text"
-            className="border  border-black py-2 px-2 focus:outline-none placeholder:text-light"
+            className="border py-2 px-2 focus:outline-none placeholder:text-light"
           />
         </div>
         <div className="flex flex-col my-6">
@@ -60,6 +60,7 @@ const ExpensesForm = () => {
           <input
             onChange={(e) => setAmount(parseInt(e.target.value))}
             placeholder="How much did you spend..?"
+            min={1}
             value={amount}
             required
             type="number"
@@ -67,7 +68,7 @@ const ExpensesForm = () => {
           />
         </div>
         <div className="flex justify-between my-4">
-          <p>
+          <p className="flex items-center space-x-1">
             <label>expense</label>
             <input
               onChange={(e) => handleRadio(e.target.value)}
@@ -76,7 +77,7 @@ const ExpensesForm = () => {
               value="false"
             />
           </p>
-          <p>
+          <p className="flex items-center space-x-1">
             <label>income</label>
             <input
               onChange={(e) => handleRadio(e.target.value)}

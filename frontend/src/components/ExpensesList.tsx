@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
+import { format } from "date-fns";
 //components
 import useAuthContext from "../hooks/useAuthContext";
 import useExpensesContext from "../hooks/useExpensesContext";
@@ -52,8 +53,7 @@ const ExpensesList = ({ expenses }: IExpensesListProps) => {
     let currentDate = date;
     let startDate = new Date(currentDate.getFullYear(), 0, 4);
     let days = Math.floor(
-      (currentDate.getMilliseconds() - startDate.getMilliseconds()) /
-        (24 * 60 * 60 * 1000)
+      (currentDate.getTime() - startDate.getTime()) / (24 * 60 * 60 * 1000)
     );
     return Math.ceil((currentDate.getDay() + 1 + days) / 7);
   };
@@ -85,6 +85,8 @@ const ExpensesList = ({ expenses }: IExpensesListProps) => {
             let expenseWeekNumber = getNumberOfTheWeek(
               new Date(expense.updatedAt)
             );
+            console.log("this week number: " + thisWeekNumber);
+            console.log("expense week number: " + expenseWeekNumber);
             if (thisWeekNumber === expenseWeekNumber) {
               isThisWeek = true;
             }
@@ -104,17 +106,14 @@ const ExpensesList = ({ expenses }: IExpensesListProps) => {
     : null;
 
   return (
-    <div className="flex flex-col justify-start items-center w-full md:w-2/3 min-h-screen order-2 md:order-1 mt-10 md:mx-36 space-y-6 md:p-8 mt-">
-      {newExpenses?.length !== 0 && (
-        <div className="flex flex-col md:flex-row w-full justify-center items-center md:justify-between">
-          <Filters getFilter={getFilter} filter={filter} />
-          <p className="font-semibold tracking-wide my-5">
-            Total Balance: $
-            {newExpenses?.reduce((acc, curr) => acc + curr.amount, 0)}
-          </p>
-        </div>
-      )}
-
+    <div className="flex flex-col justify-center md:justify-start items-center w-full md:w-2/3 min-h-screen order-2 md:order-1 mt-10 md:mx-36 space-y-6 md:p-8 mb-5 md:mb-0">
+      <div className="flex flex-col md:flex-row w-full justify-center items-center md:justify-between">
+        <Filters getFilter={getFilter} filter={filter} />
+        <p className="font-semibold tracking-wide my-5">
+          Total Balance: $
+          {newExpenses?.reduce((acc, curr) => acc + curr.amount, 0)}
+        </p>
+      </div>
       {!newExpenses || (newExpenses.length === 0 && <p>no expenses to load</p>)}
       {newExpenses?.length !== 0 &&
         newExpenses?.map((expense) => (
@@ -122,12 +121,12 @@ const ExpensesList = ({ expenses }: IExpensesListProps) => {
             key={expense._id}
             className={`relative flex flex-col justify-center text-left border-l-8 ${
               expense.isIncome ? "border-green-600" : "border-red-600"
-            } py-6 px-10 rounded-lg shadow-md w-full transition duration-200 hover:-translate-y-1 hover:shadow-xl bg-white group`}
+            } py-6 px-10 rounded-lg shadow-md w-11/12 md:w-full transition duration-200 hover:-translate-y-1 hover:shadow-xl bg-white group space-y-3 break-words`}
           >
-            <p>
+            <p className="text-xl font-semibold tracking-wider">
               {expense.name}, ${expense.amount}
             </p>
-            <p>{expense.createdAt}</p>
+            <p>{format(new Date(expense.createdAt), "dd-MM-yyyy")}</p>
             <img
               src={deleteIcon.toString()}
               alt="trashcan"

@@ -10,7 +10,7 @@ import useAuthContext from "./hooks/useAuthContext";
 function App() {
   const { user } = useAuthContext();
   return (
-    <div className="min-h-screen bg-[#9eb48b]">
+    <div className="min-h-screen bg-[#9eb48b] font-sans">
       <BrowserRouter>
         <Navbar />
         <Routes>

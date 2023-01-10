@@ -7,6 +7,10 @@ module.exports = {
         money: "url('/src/assets/plant.jpg')",
       },
     },
+    fontFamily: {
+      serif: ["Roboto Slab", "serif"],
+      sans: ["Poppins", "sans-serif"],
+    },
   },
   plugins: [],
 };
